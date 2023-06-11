@@ -17,14 +17,14 @@ def mostrar_tabla():
         encabezados, datos_tablas = resultado
         
         if len(datos_tablas) >= 2:
-            etiqueta_estado.config(text="Hay " + str(len(datos_tablas)) + " tablas. Seleccione el número de tabla:")
+            etiqueta_estado.config(text="There is " + str(len(datos_tablas)) + " tables. Select the number of the table:")
             boton_generar.config(state=tk.DISABLED)  # Deshabilitar el botón mientras se selecciona la tabla
             entrada_num_tabla.config(state=tk.NORMAL)  # Habilitar el campo de entrada para el número de tabla
             entrada_num_tabla.delete(0, tk.END)  # Limpiar el campo de entrada
         else:
             mostrar_tabla_seleccionada(0)  # Mostrar la única tabla disponible
     else:
-        etiqueta_estado.config(text="No se pudo obtener la tabla")
+        etiqueta_estado.config(text="The table could not be retrieved")
 
 def mostrar_tabla_seleccionada(num_tabla):
     # Mostrar el encabezado
@@ -33,7 +33,7 @@ def mostrar_tabla_seleccionada(num_tabla):
     # Mostrar los datos de la tabla seleccionada
     for fila in datos_tablas[num_tabla]:
         tabla_text.insert(tk.END, "\t".join(fila) + "\n")
-    etiqueta_estado.config(text="Tabla generada exitosamente")
+    etiqueta_estado.config(text="Table generated successfully")
     
     nombre_archivo = entrada_archivo.get()
     crear_archivo(encabezados[num_tabla], datos_tablas[num_tabla], nombre_archivo)
